@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-  let firebaseConfig = {
+  const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
     authDomain: "time-keeper-54321.firebaseapp.com",
     databaseURL: "https://time-keeper-54321.firebaseio.com",
