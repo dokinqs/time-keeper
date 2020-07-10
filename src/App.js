@@ -30,11 +30,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo" alt="???" />
         <h1>TIME KEEPER</h1>
         <AddTimeForm />
         <TimesList />
-        <a className="scrollUp" onClick={scrollUp}>^</a>
+        <button className="scrollUp" onClick={scrollUp}>^</button>
       </header>
     </div>
   );

@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family: 'Marcellus SC', 'Helvetica Neue', sans-serif;
@@ -42,7 +45,7 @@ body {
 h1 {
   margin: 30px 0 10px 0;
   font-weight: 400;
-  font-size: 36px;
+  font-size: 40px;
 }
 h4 {
   margin: 10px;
@@ -54,7 +57,7 @@ h4 {
 
 form {
   background-color: #3f434b;
-  padding: 10px;
+  padding: 20px;
   border-radius: 10px;
 }
 form div {
@@ -63,7 +66,7 @@ form div {
 form div label {
   color: #9eb6e6;
 }
-button {
+form button {
   background-image: linear-gradient(to right, #1E6BFF 0%, #8122cf 75%, #ae30a3 100%);
   text-decoration: none;
   border: none;
@@ -80,7 +83,7 @@ button {
   /* -webkit-appearance: none;
   -moz-appearance: none; */
 }
-button:hover {
+form button:hover {
   background-position: right center; 
   cursor: pointer;
 }
@@ -126,12 +129,15 @@ li:nth-child(even) {
 
 /* ===== SCROLL ===== */
 .scrollUp {
-  opacity: 0.4;
-  background-color: #3f434b;
+  opacity: 0.6;
+  background-color: #4a4d55;
+  color: #eee;
   position: fixed;
-  font-size: 50px;
-  width: 40px;
-  height: 40px;
+  font-size: 24px;
+  width: 33px;
+  height: 33px;
+  padding-top: 6px;
+  padding-bottom: 0;
   bottom: 20px;
   right: 20px;
   border: none;
@@ -145,7 +151,7 @@ li:nth-child(even) {
 
 /* ===== DESKTOP ===== */
 
-@media screen and (min-width: 1200px) and (min-height: 355px) {
+@media screen and (min-width: 1024px) and (min-height: 355px) {
   .App-header {
     font-size: 24px;
   }
