@@ -11,7 +11,6 @@ function useTimes() {
             .firestore()
             .collection('times')
             .onSnapshot((snapshot) => {
-                // debugger; console.log(snapshot.docs[0].data());
                 const newTimes = snapshot.docs.map((doc) => ({
                     id: doc.id,
                     ...doc.data()

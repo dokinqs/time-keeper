@@ -3,19 +3,19 @@ import logo from './logo.svg';
 import './App.css';
 import TimesList from './components/times-list';
 import AddTimeForm from './components/add-time-form';
-import firebase from './firebase';
+// import firebase from './firebase';
 
-// just a configuration check, delete later
-firebase.firestore().collection('times').add({
-  title: 'Rubik\'s Cube',
-  time_sec: Math.ceil(Math.random() * 40) + 50
-})
-.then(() => {
-  console.log("Successfully Added");
-})
-.catch((err) => {
-  console.error("Error adding document: ", err);
-});
+// // just a configuration check, delete later
+// firebase.firestore().collection('times').add({
+//   title: 'Rubik\'s Cube',
+//   time_sec: Math.ceil(Math.random() * 40) + 50
+// })
+// .then(() => {
+//   console.log("Successfully Added");
+// })
+// .catch((err) => {
+//   console.error("Error adding document: ", err);
+// });
 
 function App() {
   function scrollUp() {
