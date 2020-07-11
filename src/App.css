@@ -10,6 +10,9 @@ body {
 .App {
   text-align: center;
 }
+
+/* ===== MOBILE FIRST ===== */
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -50,6 +53,7 @@ h1 {
 h4 {
   margin: 10px;
   margin-bottom: 20px;
+  font-size: 20px;
 }
 
 
@@ -68,18 +72,17 @@ form div label {
 }
 form button {
   background-image: linear-gradient(to right, #1E6BFF 0%, #8122cf 75%, #ae30a3 100%);
+  transition: 0.5s;
+  background-size: 150% auto;
   text-decoration: none;
   border: none;
   border-radius: 10px;
   box-shadow: 5px 5px 7px #000;
+  color: white;
+  font-family: 'Marcellus SC', 'Helvetica Neue', sans-serif;
+  font-size: 20px;
   margin: 15px;
   padding: 8px 15px;
-  transition: 0.5s;
-  background-size: 150% auto;
-  color: white;
-  font-size: 20px;
-  font-weight: 800;
-  font-family: 'Marcellus SC', 'Helvetica Neue', sans-serif;
   /* -webkit-appearance: none;
   -moz-appearance: none; */
 }
@@ -113,15 +116,36 @@ select {
 ol {
   min-width: 300px;
   padding: 0;
-  list-style-type: lower-roman;
+  /* list-style-type: lower-roman; */
 }
 ol li {
   text-align: start;
-  margin: 3px 0;
+  margin: 0;
   padding: 5px 10px;
 }
 li:nth-child(even) {
   background: #3f434b;
+}
+.delBtn {
+  float: right;
+  position: relative;
+  right: -10px;
+  background-color: #4a4d55;
+  border: none;
+  padding-top: 1px;
+  margin-top: inherit;
+  font-family: inherit;
+}
+.delBtn:hover {
+  background-color: #abbaff;
+  cursor: pointer;
+}
+.titleText {
+  width: 190px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
 }
 .time {
   float: right;
@@ -134,12 +158,12 @@ li:nth-child(even) {
   color: #eee;
   position: fixed;
   font-size: 24px;
-  width: 33px;
-  height: 33px;
+  width: 35px;
+  height: 35px;
   padding-top: 6px;
   padding-bottom: 0;
-  bottom: 20px;
-  right: 20px;
+  bottom: 30px;
+  left: 15px;
   border: none;
   border-radius: 5px;
   scroll-behavior: smooth;
@@ -151,9 +175,12 @@ li:nth-child(even) {
 
 /* ===== DESKTOP ===== */
 
-@media screen and (min-width: 1024px) and (min-height: 355px) {
+@media screen and (min-width: 1270px) and (min-height: 355px) {
   .App-header {
     font-size: 24px;
+  }
+  .App-logo {
+    height: 150px;
   }
   .App-header h1 {
     font-size: 64px;
@@ -170,10 +197,22 @@ li:nth-child(even) {
     display: block;
     margin-top: 5px;
   }
+  .timesListContainer {
+    width: 540px;
+  }
   .sortLabel {
     font-size: 28px;
   }
-  .App-logo {
-    height: 200px;
+  .delBtn {
+    font-size: 20px;
+  }
+  .titleText {
+    width: auto;
+  }
+  .scrollUp {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    left: 40px;
   }
 }

@@ -33,6 +33,7 @@ const AddTimeForm = () => {
                 <label>Time</label>{' '}
                 <input type="number" placeholder="time in seconds" 
                 required
+                max="99999999"
                 value={time}
                 onChange={e => setTime(e.currentTarget.value)} />
             </div>

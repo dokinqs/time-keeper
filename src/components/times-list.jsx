@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import firebase from '../firebase';
 
+const db = firebase.firestore();
+
 const SORT_OPTIONS = {
     'TIME_ASC': {column: 'time_sec', direction: 'asc'},
     'TIME_DESC': {column: 'time_sec', direction: 'desc'},
@@ -12,12 +14,8 @@ const SORT_OPTIONS = {
 function useTimes(sortBy='TIME_ASC') {
     const [times, setTimes] = useState([]);
 
-    // const db = firebase.firestore();
-
     useEffect(() => {
-        const unsubscribe = firebase
-            .firestore()
-            .collection('times')
+        const unsubscribe = db.collection('times')
             .orderBy(SORT_OPTIONS[sortBy].column, SORT_OPTIONS[sortBy].direction)
             .onSnapshot((snapshot) => {
                 const newTimes = snapshot.docs.map((doc) => ({
@@ -36,12 +34,6 @@ function useTimes(sortBy='TIME_ASC') {
         //         })
         //     });
 
-        // db.collection("times").where(time.id, "==", id).get()
-        //     .then((querySnapshot) => {
-        //             console.log(`${doc.id} => ${doc.data()}`);
-        //             doc.ref.delete();
-        //     });
-
         return () => unsubscribe();
     }, [sortBy]);
     return times;
@@ -50,6 +42,18 @@ function useTimes(sortBy='TIME_ASC') {
 const TimesList = () => {
     const [sortBy, setSortBy] = useState('TIME_ASC');
     const times = useTimes(sortBy);
+
+    const deleteEntry = (timeid) => {
+        db.collection("times")
+            .doc(timeid)
+            .delete()
+            .then(() => {
+                console.log("deleted");
+            })
+            .catch((err) => {
+                console.log("delete failed: " + err.message);
+            });
+    }
 
     return (
         <div className="timesListContainer">
@@ -66,9 +70,10 @@ const TimesList = () => {
             <ol>
                 {times.map((time) => 
                     <li key={time.id}>
+                        <button className="delBtn" onClick={() => deleteEntry(time.id)}>X</button>
                         <div className="time-entry">
-                            {time.title}
-                            <code className="time">{time.time_sec}</code>
+                            <div className="titleText">{time.title}</div>
+                            <div className="time">{time.time_sec}</div>
                         </div>
                     </li>
                 )}
